@@ -30,3 +30,25 @@
 // nums.length == 2 * n
 // 0 <= nums[i] <= 104
 // nums contains n + 1 unique elements and one of them is repeated exactly n times.
+
+// Solution:
+// Using a set to track seen elements and returning the first one that appears twice.
+
+function repeatedNTimes(nums: number[]): number {
+    let seen: number[] = []
+    for (let i = 0; i <= nums.length - 1; i++ ) {
+        if (seen.includes(nums[i])) return nums[i];
+        
+        seen.push(nums[i]);
+    }
+    return -1;
+};
+
+let nums = [5,1,5,2,5,3,5,4]
+console.log(repeatedNTimes(nums))
+
+nums = [1,2,3,3]
+console.log(repeatedNTimes(nums))
+
+nums = [2,1,2,5,3,2]
+console.log(repeatedNTimes(nums))
